@@ -16,6 +16,7 @@ const getPoints = async (i) => {
             points += data[j].points;
         }
     }
+    console.log(points)
     return points
 }
 
