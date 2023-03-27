@@ -10,7 +10,7 @@ const getList = (after: number) => {
 
 const getPoints = async (i: number) => {
     let points = 0
-    const data = (await getList(i)).data.space.loyaltyPointsRanks.list;
+    const data = (await getList(i)).data.space?.loyaltyPointsRanks.list;
     for (let j = 0; j < 1000; j++) {
         if (data[j]?.points) {
             points += data[j].points;
