@@ -11,12 +11,12 @@ const getList = (after: number) => {
 const getPoints = async (i: number) => {
     let points = 0
     const data = (await getList(i)).data.space?.loyaltyPointsRanks.list;
-    for (let j = 0; j < 1000; j++) {
+    for (let j = 0; j < data.length; j++) {
         if (data[j]?.points) {
             points += data[j].points;
         }
     }
-    console.log(points)
+    console.log(`${i}-${i + data.length}: ${points}`)
     return points
 }
 
@@ -31,7 +31,7 @@ const main = async () => {
         return arr.reduce((partialSum, a) => partialSum + a, 0);
     });
 
-    console.log(points);
+    console.log(`All points: ${points}`);
 }
 
 main()
