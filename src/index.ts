@@ -11,12 +11,12 @@ const getList = (after: number) => {
 const getPoints = async (i: number) => {
     let points = 0
     const data = (await getList(i)).data.space?.loyaltyPointsRanks.list;
-    for (let j = 0; j < data.length; j++) {
+    for (let j = 0; j < data?.length; j++) {
         if (data[j]?.points) {
             points += data[j].points;
         }
     }
-    console.log(`${i}-${i + data.length}: ${points}`)
+    console.log(`${i}-${i + data?.length}: ${points}`)
     return points
 }
 
